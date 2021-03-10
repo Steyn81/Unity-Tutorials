@@ -9,7 +9,7 @@ public class PlayerHealthController : MonoBehaviour
     public int currentHealth;
 
     [SerializeField] float invincibleLength;
-    [SerializeField] int maxHealth;
+    public int maxHealth;
 
     private float invincibleCounter;
     private SpriteRenderer sr;
@@ -47,7 +47,9 @@ public class PlayerHealthController : MonoBehaviour
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
+
+                LevelManager.instance.RespawnPlayer();
             }
             else
             {
