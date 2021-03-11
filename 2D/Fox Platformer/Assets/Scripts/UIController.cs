@@ -9,10 +9,15 @@ public class UIController : MonoBehaviour
 
     [SerializeField] Image heart1, heart2, heart3;
     [SerializeField] Sprite heartFull, heartEmpty,heartHalf;
+    [SerializeField] Text gemText;
 
     private void Awake()
     {
         instance = this;
+    }
+    private void Start()
+    {
+        UpdateGemCount();
     }
 
     public void UpdateHealthDisplay()
@@ -60,5 +65,10 @@ public class UIController : MonoBehaviour
                 heart3.sprite = heartEmpty;
                 break;
         }
+    }
+
+    public void UpdateGemCount()
+    {
+        gemText.text = LevelManager.instance.gemsCollected.ToString();
     }
 }
